@@ -6,7 +6,7 @@ import Avatar from "../../shared/components/UIElements/Avatar";
 const UserItem = (props) => {
   return (
     <li className="user-item">
-      <Link to={`/${props.id}/paces`}>
+      <Link to={`/${props.id}/places`}>
         <div className="user-item__image">
           <Avatar image={props.image} alt={props.name} />
         </div>

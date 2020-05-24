@@ -3,7 +3,7 @@ import React from "react";
 import "./PlaceItem.css";
 import Card from "../../shared/components/UIElements/Card";
 
-const PlaceItem = () => {
+const PlaceItem = (props) => {
   return (
     <Card className="place-item__content">
       <li className="place-item">
