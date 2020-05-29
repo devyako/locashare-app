@@ -1,27 +1,55 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 
 import "./PlaceItem.css";
+import Button from "../../shared/components/formElements/Button";
 import Card from "../../shared/components/UIElements/Card";
+import Modal from "../../shared/components/UIElements/Modal";
 
 const PlaceItem = (props) => {
+  const [showMap, setShowMap] = useState(false);
+
+  const openMapHandler = () => {
+    setShowMap(true);
+  };
+
+  const closeMapHandler = () => {
+    setShowMap(false);
+  };
+
   return (
-    <Card className="place-item__content">
-      <li className="place-item">
-        <div className="place-item__image">
-          <img src={props.image} alt={props.title} />
+    <Fragment>
+      <Modal
+        show={showMap}
+        onCancel={closeMapHandler}
+        header={props.address}
+        contentClass="place-item__modal-content"
+        footerClass="place-item__modal-actions"
+        footer={<Button onClick={closeMapHandler}>Close</Button>}
+      >
+        <div className="map-container">
+          <h2>THE MAP</h2>
         </div>
-        <div className="place-item__info">
-          <h2>{props.title}</h2>
-          <h3>{props.address}</h3>
-          <p>{props.description}</p>
-        </div>
-        <div className="place-item__actions">
-          <button>VIEW ON MAP</button>
-          <button>EDIT</button>
-          <button>DELETE</button>
-        </div>
-      </li>
-    </Card>
+      </Modal>
+      <Card className="place-item-content">
+        <li className="place-item">
+          <div className="place-item__image">
+            <img src={props.image} alt={props.title} />
+          </div>
+          <div className="place-item__info">
+            <h2>{props.title}</h2>
+            <h3>{props.address}</h3>
+            <p>{props.description}</p>
+          </div>
+          <div className="place-item__actions">
+            <Button inverse onClick={openMapHandler}>
+              VIEW ON MAP
+            </Button>
+            <Button to={`/places/${props.id}`}>EDIT</Button>
+            <Button danger>DELETE</Button>
+          </div>
+        </li>
+      </Card>
+    </Fragment>
   );
 };
 
