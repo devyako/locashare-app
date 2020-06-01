@@ -5,10 +5,17 @@ const User = () => {
   const USERS = [
     {
       id: "u1",
-      name: "Maria",
+      name: "Yakhyo",
       image:
-        "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://yakhyo.netlify.app/static/media/me-glasses.eb1522aa.png",
       places: 3,
+    },
+    {
+      id: "u2",
+      name: "Umar",
+      image:
+        "https://yakhyo.netlify.app/static/media/me-glasses.eb1522aa.png",
+      places: 4,
     },
   ];
 
